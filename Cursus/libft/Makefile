@@ -33,4 +33,4 @@ fclean : clean
 re :
 	make fclean
 	make all
-.PHONY  :   all clean fclean r ${NAME}
+.PHONY  :   all clean fclean re ${NAME}

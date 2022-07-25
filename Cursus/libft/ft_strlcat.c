@@ -6,7 +6,7 @@
 /*   By: yeonfale <yeonjale@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 09:33:15 by yeonfale          #+#    #+#             */
-/*   Updated: 2022/07/20 09:23:48 by yeonfale         ###   ########.fr       */
+/*   Updated: 2022/07/19 09:33:20 by yeonfale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,19 @@ size_t	ft_strlcat(char *dest, char *src, size_t size)
 	i = ft_strlen(dest);
 	j = 0;
 	if (size < i)
-		return (size + ft_strlen(src));
+		return (ft_strlen(src) + size);
 	while (i + 1 < size)
 	{
 		dest[i] = src[j];
 		if (src[j] == '\0')
+		{
+			dest[i] = '\0';
 			break ;
+		}
 		i++;
 		j++;
 	}
-	dest[i] = '\0';
-	return (ft_strlen(dest) - j + ft_strlen(src));
+	if (i == size - 1 && dest[i] != '\0')
+		dest[i] = '\0';
+	return (ft_strlen(dest) + ft_strlen(src) - j);
 }
