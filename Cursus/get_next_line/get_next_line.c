@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
@@ -18,6 +18,23 @@ char	*get_next_line(int fd)
 	char 		*line;
 	static char *backup;
 	int			i;
+
+	backup = (char *)malloc(sizeof(char) * BUFFER_SIZE);
+	if (backup == NULL)
+	{
+		free(backup);
+		return (0);
+	}
+
+	ft_strlcat(backup,  buff, BUFFER_SIZE);
+	i = 0;
+	while (backup[i])
+	{
+		if (backup[i] == '\n')
+		{
+			
+		}
+	}
 
 	i = 0;
 	while (backup[i])
@@ -56,4 +73,3 @@ int main()
 		printf("...\n");
 	}
 }
-

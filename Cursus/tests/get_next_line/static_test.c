@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   static_test.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeonfale <yeonjale@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 16:11:50 by yeonfale          #+#    #+#             */
-/*   Updated: 2022/07/29 14:12:41 by yeonfale         ###   ########.fr       */
+/*   Created: 2022/07/29 13:15:53 by yeonfale          #+#    #+#             */
+/*   Updated: 2022/07/29 13:16:32 by yeonfale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int ft_count()
 {
-	char	*str;
-	int		dstlen;
-	int		i;
-	int		j;
+	static int i = 0;
+	i++;
+	return i;
+}
 
-	dstlen = ft_strlen(s1) + ft_strlen(s2) + 1;
-	str = (char *)malloc(sizeof(char) * dstlen);
-	if (str == NULL)
-		return (0);
-	i = 0;
-	while (s1[i])
-	{
-		str[i] = s1[i];
-		i++;
-	}
-	j = 0;
-	while (s2[j])
-		str[i++] = s2[j++];
-	str[i] = '\0';
-	return (str);
+int main()
+{
+	int idx;
+
+	idx = ft_count();
+	printf("%d\n", idx);
+	idx = ft_count();
+	printf("%d\n", idx);
 }
