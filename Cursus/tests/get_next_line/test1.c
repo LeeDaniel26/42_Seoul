@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   test1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeonfale <yeonjale@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/19 09:34:58 by yeonfale          #+#    #+#             */
-/*   Updated: 2022/07/19 09:35:00 by yeonfale         ###   ########.fr       */
+/*   Created: 2022/07/29 13:16:44 by yeonfale          #+#    #+#             */
+/*   Updated: 2022/07/29 13:41:46 by yeonfale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <fcntl.h>
+#include <unistd.h>
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+#define BUF_SIZE 1024
+
+/*
+char *gnl(int fd)
 {
-	size_t			i;
-	unsigned char	*s1tmp;
-	unsigned char	*s2tmp;
+	char buf[BUF_SIZE];
 
-	s1tmp = (unsigned char *)s1;
-	s2tmp = (unsigned char *)s2;
-	i = 0;
-	while (i < n)
-	{
-		if (s1tmp[i] != s2tmp[i])
-			return (s1tmp[i] - s2tmp[i]);
-		if (s1tmp[i] == '\0' || s2tmp[i] == '\0')
-			return (0);
-		i++;
-	}
+	read(fd, buf, BUF_SIZE);
+	
+}
+*/
+
+int	main()
+{
+	static int	i = 0;
+
 	return (0);
 }

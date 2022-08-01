@@ -1,17 +1,28 @@
 #include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
 
-void ft_count()
-{
-	static int i = 0;
-
-	int num = 5;
-	while(num--)
-		i++;
-	printf("%d\n", i);
-}
+#define BUF_SIZE 1024
 
 int main()
 {
-	for(int i=0; i<3; i++)
-		ft_count();
+	char buf[BUF_SIZE];
+	size_t idx;
+
+	int fd;
+	
+	if ((fd = open("test.txt", O_RDONLY)) > 0)
+	{
+		while (1)
+		{
+			idx = read(fd, buf, BUF_SIZE);
+			if (idx == =1)
+				break ;
+		}
+	}
+	else
+	{
+		return (0);
+	}
+
 }
