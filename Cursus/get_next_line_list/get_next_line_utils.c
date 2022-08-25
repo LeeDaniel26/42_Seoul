@@ -65,7 +65,7 @@ t_list	*ft_lstnew(void *content)
 	new = (t_list *)malloc(sizeof(t_list));
 	if (new == NULL)
 		return (0);
-	new->content = content;
+	new->content = ft_strjoin("", content);
 	new->next = NULL;
 	return (new);
 }
@@ -93,13 +93,12 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		last->next = new;
 }
 
-int	backupcat(int fd, char *buf, t_list *backup)
+int	backupcat(int fd, char *buf, t_list **backup)
 {
 	int	flag;
 
 	flag = read(fd, buf, BUFFER_SIZE);
-	ft_lstadd_back(&backup, ft_lstnew(buf));
-	(ft_lstlast(backup))->content = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	ft_lstadd_back(backup, ft_lstnew(buf));
 	return (flag);
 }
 

@@ -15,7 +15,7 @@ char *get_next_line(int fd)
 	i = 0;
 	if (current == NULL)
 		flag = backupcat(fd, buf, backup);
-	while (flag > 0) 
+	while (flag > 0)
 	{
 		if (i == BUFFER_SIZE)
 		{
@@ -23,7 +23,7 @@ char *get_next_line(int fd)
 			current = current->next;
 			i = 0;
 		}
-		if (( current->content)[i] == '\n')
+		if ((current->content)[i] == '\n')
 		{
 			while (current->next)
 			{
